@@ -13,7 +13,7 @@ const Item: React.FC<ItemPropsExt> = ({ id, title, platform, authors, onEdit }) 
   return (
     <IonItem onClick={() => onEdit(id)}>
       <IonNote style={{"width":"5vw"}}>{platform}</IonNote>
-      <IonLabel><b>{title}</b> by <i>{authors.join(" ")}</i></IonLabel>
+      <IonLabel><b>{title}</b> by <i>{authors.join(", ")}</i></IonLabel>
     </IonItem>
   );
 };

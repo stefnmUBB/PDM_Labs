@@ -34,6 +34,7 @@ const ItemEdit: React.FC<ItemEditProps> = ({ history, match }) => {
   const [lastVersion, setLastVersion] = useState('');
   const [url, setUrl] = useState('');
   const [totalReleases, setTotalReleases]=useState(0);
+  const [authors, setAuthors]=useState<string[]>([]);
 
   const [item, setItem] = useState<ItemProps>();
   useEffect(() => {
@@ -49,14 +50,15 @@ const ItemEdit: React.FC<ItemEditProps> = ({ history, match }) => {
       setPlatform(item.platform)
       setUrl(item.url)    
       setTotalReleases(item.totalReleases)
+      setAuthors(item.authors);
       console.log(item.launchDate)
     }
   }, [match.params.id, items]);
 
   const handleSave = useCallback(() => {    
-    const editedItem = { ...item, title, launchDate, platform, lastVersion, url, totalReleases };
+    const editedItem = { ...item, title, launchDate, platform, lastVersion, url, totalReleases, authors };
     saveItem && saveItem(editedItem).then(() => history.goBack());
-  }, [item, saveItem, title, launchDate, platform, url, lastVersion, totalReleases, history]);
+  }, [item, saveItem, title, launchDate, platform, url, lastVersion, totalReleases, authors, history]);
 
   const handleDelete = useCallback(() => {
     const editedItem = item;
@@ -82,6 +84,9 @@ const ItemEdit: React.FC<ItemEditProps> = ({ history, match }) => {
         <br/>
         <IonLabel><b>Title</b></IonLabel>
         <IonInput value={title} onIonChange={e => setTitle(e.detail.value || '')} />
+        <br/>
+        <IonLabel><b>Authors</b> (separated by ",")</IonLabel>
+        <IonInput value={authors.join(",")} onIonChange={e => setAuthors((e.detail.value || '').split(",").filter(x=>x!=""))} />
         <br/>
         <IonLabel><b>Launch Date</b></IonLabel>
         <IonDatetime presentation="date" value={launchDate} onIonChange={e=>{ setLaunchDate(e.detail.value?.toString() || '')}}/>
