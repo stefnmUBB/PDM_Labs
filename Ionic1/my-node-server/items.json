@@ -1,0 +1,12 @@
+[
+    {
+        "id":"1", "title":"AIRPLANZ", "authors":["NotImplementedLife"], "launchDate": "2020-07-10", 
+        "platform":"Game Boy", "lastVersion" : "1.0", "url":"https://github.com/NotImplementedLife/AIRPLANZ",
+        "totalReleases":5
+    },
+    {
+        "id":"2", "title":"Breksta's Cat", "authors":["NotImplementedLife"], "launchDate": "2020-08-15", 
+        "platform":"Game Boy", "lastVersion" : "1.3", "url":"https://github.com/NotImplementedLife/brekstascat",
+        "totalReleases":6        
+    }
+]
