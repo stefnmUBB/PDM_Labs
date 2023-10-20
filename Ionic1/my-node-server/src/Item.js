@@ -1,13 +1,14 @@
 class Item {
-    constructor({ id, title, authors, launchDate, platform, lastVersion, url, totalReleases }) {
+    constructor({ id, title, authors, launchDate, platform, lastVersion, url, totalReleases, isOpenSource }) {
         this.id = id;
         this.title = title;
-        this.launchDate = launchDate;
+        this.launchDate = new Date(launchDate);
         this.platform = platform;
         this.lastVersion = lastVersion;
         this.url = url;      
         this.authors = authors;      
         this.totalReleases = totalReleases;
+        this.isOpenSource = isOpenSource;
     }
 }
 
@@ -22,7 +23,8 @@ function loadItems(jsonList){
             platform: jsonList[i].platform,
             lastVersion: jsonList[i].lastVersion,
             url : jsonList[i].url,           
-            totalReleases: jsonList[i].totalReleases  
+            totalReleases: jsonList[i].totalReleases,
+            isOpenSource: jsonList[i].isOpenSource
         }));
     return items;
 }
