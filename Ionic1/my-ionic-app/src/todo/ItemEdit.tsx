@@ -100,7 +100,7 @@ const ItemEdit: React.FC<ItemEditProps> = ({ history, match }) => {
           <IonSelectOption>Game Boy Advance</IonSelectOption>
           <IonSelectOption>Nintendo DS</IonSelectOption>
           <IonSelectOption>Nintendo 3DS</IonSelectOption>
-        </IonSelect>        
+        </IonSelect> 
         <br/>
         <IonLabel><b>Last Version</b></IonLabel>
         <IonInput value={lastVersion} onIonChange={e => setLastVersion(e.detail.value || '')} />

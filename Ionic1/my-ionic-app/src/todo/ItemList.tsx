@@ -32,9 +32,10 @@ const ItemList: React.FC<RouteComponentProps> = ({ history }) => {
         <IonLoading isOpen={fetching} message="Fetching items" />
         {items && (
           <IonList>
-            {items.map(({ id, title, launchDate, platform, lastVersion, url, authors, totalReleases }) =>            
+            {items.map(({ id, title, launchDate, platform, lastVersion, url, authors, totalReleases, isOpenSource }) =>            
               <Item key={id} id={id} title={title} onEdit={id => history.push(`/item/${id}`)}
                     launchDate={launchDate} platform={platform} lastVersion={lastVersion} url={url} 
+                    isOpenSource={isOpenSource}
                     authors = {authors} totalReleases={totalReleases}/>)}
           </IonList>
         )}
