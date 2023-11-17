@@ -144,6 +144,7 @@ export const GamesList: React.FC<RouteComponentProps> = ({ history }) => {
                 url={game.url} 
                 isOpenSource={game.isOpenSource}
                 isNotSaved={game.isNotSaved}
+                webViewPath={game.webViewPath}
                 authors = {game.authors} totalReleases={game.totalReleases}/>           
             )}
           </IonList>
